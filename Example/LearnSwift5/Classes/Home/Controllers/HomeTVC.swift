@@ -11,10 +11,9 @@ import UIKit
 class HomeTVC: UITableViewController {
     
     // MARK: - properties
-    lazy var rows = ["基本操作-BaseOperatorVC", "属性监听"]
+    lazy var rows = ["基本操作-BaseOperatorTVC"]
     
     // MARK: - Life cycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
