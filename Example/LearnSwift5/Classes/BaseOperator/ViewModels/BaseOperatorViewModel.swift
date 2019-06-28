@@ -11,7 +11,7 @@ import UIKit
 class BaseOperatorViewModel: NSObject, ViewModelProtocol {
 
     // MARK: - properties
-    private lazy var baseOperatorDatas = ["常量"]
+    private lazy var baseOperatorDatas = ["常量", "变量"]
     private lazy var infoView: AlertInfoView = {
         let infoView = AlertInfoView.loadViewFromNib()
         infoView.frame = CGRect(origin: .zero, size: CGSize(width: 200, height: 200))
@@ -57,9 +57,13 @@ extension BaseOperatorViewModel: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         infoView.isHidden = false
-        let text = baseOperatorDatas[indexPath.row];
-        if text == baseOperatorDatas[0] {
+        let index = indexPath.row
+        let text = baseOperatorDatas[index]
+        infoView.titleLabel.text = text
+        if 0 == index {
             use_constant()
+        } else if 1 == index {
+            use_variable()
         }
     }
     
@@ -80,7 +84,8 @@ extension BaseOperatorViewModel {
     /// 常量的使用
     fileprivate func use_constant() {
         /// 只能赋值一次
-        let age1 = 10;
+        /// 直接赋值
+        let age1 = 10
         
         /// 先定义，后赋值
         let age2: Int
@@ -88,13 +93,37 @@ extension BaseOperatorViewModel {
         
         /// 函数返回值
         let age3 = getAge()
-        infoView.titleLabel.text = "我是常量"
-        infoView.textView.text = "age1 = \(age1)\nage2 = \(age2)\nage3 = \(age3)\n"
+        
+        infoView.textView.text = "age1 = \(age1)\n" + "age2 = \(age2)\n" + "age3 = \(age3)\n"
     }
     
     fileprivate func getAge() -> Int {
         return 30
     }
     
+    /// 变量的使用
+    fileprivate func use_variable() {
+        
+        /// 直接赋值
+        var age1 = 10
+        
+        /// 先定义，后赋值
+        var age2: Int
+        age2 = 20
+        
+        /// 函数返回值
+        var age3 = getAge()
+        
+        let previousText = "原始的值：\n" + "age1 = \(age1)\n" + "age2 = \(age2)\n" + "age3 = \(age3)\n"
+        
+        /// 修改原始的值
+        let temp = age1
+        age1 = age2
+        age2 = age3
+        age3 = temp
+        
+        let afterText = "最终的值：\n" + "age1 = \(age1)\n" + "age2 = \(age2)\n" + "age3 = \(age3)\n"
+        infoView.textView.text = previousText + afterText
+    }
     
 }
