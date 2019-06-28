@@ -11,7 +11,7 @@ import UIKit
 class HomeTVC: UITableViewController {
     
     // MARK: - properties
-    lazy var rows = ["基本操作-BaseOperatorTVC"]
+    lazy var rows = ["基本操作-BaseOperatorVC"]
     
     // MARK: - Life cycle
     override func viewDidLoad() {

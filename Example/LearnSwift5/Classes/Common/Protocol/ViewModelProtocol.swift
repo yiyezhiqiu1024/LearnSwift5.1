@@ -10,6 +10,6 @@ import UIKit
 
 @objc public protocol ViewModelProtocol {
     
-    @objc optional func bindViewModel(_ bindView: UIView)
+    @objc optional func bindView(_ bindView: UIView)
 
 }

@@ -9,48 +9,49 @@
 import UIKit
 
 class BaseOperatorViewModel: NSObject, ViewModelProtocol {
-
-    // MARK: - properties
-    private lazy var baseOperatorDatas = ["常量的使用-use_constant",
-                                          "变量的使用-use_variable",
-                                          "标识符的使用-use_🐂🍺"]
+    // MARK: - Properties
+    private var titleLabel : UILabel?
+    private var logTV: UITextView?
+    private let titles = ["常量的使用",
+                          "变量的使用",
+                          "标识符的使用"]
     
-    private lazy var infoView: AlertInfoView = {
-        let infoView = AlertInfoView.loadViewFromNib()
-        infoView.frame = CGRect(origin: .zero, size: CGSize(width: 200, height: 200))
-        infoView.isHidden = true
-        infoView.backgroundColor = UIColor(rgb: 250)
-        infoView.textView.backgroundColor = .black
-        infoView.textView.textColor = .green
-        infoView.closeBtn.addTarget(self, action: #selector(closeButtonDidTouch), for: .touchUpInside)
-        return infoView
-    }()
+    private let funNames = ["use_constant",
+                            "use_variable",
+                            "use_🐂🍺"]
     
-    func bindViewModel(_ bindView: UIView) {
-        let tableView = bindView as! UITableView
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.bounces = false
-        tableView.addSubview(infoView)
-        infoView.center = tableView.center
+    // MARK: - Interface
+    func bindView(_ bindView: UIView) {
+        
+        if bindView.isMember(of: UITableView.self) {
+            let tableView = bindView as! UITableView
+            tableView.dataSource = self
+            tableView.delegate = self
+            tableView.bounces = false
+        }
+        else if bindView.isMember(of: UILabel.self) {
+            titleLabel = bindView as? UILabel
+        } else if bindView.isMember(of: UITextView.self) {
+            logTV = bindView as? UITextView
+        }
     }
-    
 }
 
 // MARK: - Table view data source
 extension BaseOperatorViewModel: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return baseOperatorDatas.count
+        return titles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = "HomeCell"
         var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
         if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: identifier)
+            cell = UITableViewCell(style: .value1, reuseIdentifier: identifier)
         }
         
-        cell?.textLabel?.text = baseOperatorDatas[indexPath.row]
+        cell?.textLabel?.text = titles[indexPath.row]
+        cell?.detailTextLabel?.text = funNames[indexPath.row]
         return cell!
     }
 }
@@ -61,25 +62,14 @@ extension BaseOperatorViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let text = baseOperatorDatas[indexPath.row]
-        let datas = text.split(separator: "-")
-        guard let title = datas.first else { return }
-        infoView.titleLabel.text = String(title)
-        infoView.isHidden = false
-        guard let selectorName = datas.last else { return }
+        titleLabel?.text = titles[indexPath.row]
+        let selectorName = funNames[indexPath.row]
         let aSelector = NSSelectorFromString(String(selectorName))
         perform(aSelector)
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil
-    }
-}
-
-// MARK: - Action
-extension BaseOperatorViewModel {
-    @objc func closeButtonDidTouch() {
-        infoView.isHidden = true
     }
 }
 
@@ -98,7 +88,7 @@ extension BaseOperatorViewModel {
         /// 函数返回值
         let age3 = getAge()
         
-        infoView.textView.text = "age1 = \(age1)\n" + "age2 = \(age2)\n" + "age3 = \(age3)\n"
+        logTV?.text = "age1 = \(age1)\n" + "age2 = \(age2)\n" + "age3 = \(age3)\n"
     }
     
     fileprivate func getAge() -> Int {
@@ -127,7 +117,7 @@ extension BaseOperatorViewModel {
         age3 = temp
         
         let afterText = "最终的值：\n" + "age1 = \(age1)\n" + "age2 = \(age2)\n" + "age3 = \(age3)\n"
-        infoView.textView.text = previousText + afterText
+        logTV?.text = previousText + afterText
     }
     
     /// 标识符的使用
@@ -138,7 +128,7 @@ extension BaseOperatorViewModel {
         let milk = "🥛"
         let text = 👽 + " like " + milk
         myLog(text)
-        infoView.textView.text = text
+        logTV?.text = text
     }
     
 }

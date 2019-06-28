@@ -8,14 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		AEC525A322C5AC8200AC8EB2 /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525A222C5AC8200AC8EB2 /* HomeTVC.swift */; };
-		AEC525AD22C5B70400AC8EB2 /* BaseOperatorTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525AC22C5B70400AC8EB2 /* BaseOperatorTVC.swift */; };
-		AEC525B022C5B7E200AC8EB2 /* AlertInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525AF22C5B7E200AC8EB2 /* AlertInfoView.swift */; };
-		AEC525B222C5B7EA00AC8EB2 /* AlertInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEC525B122C5B7EA00AC8EB2 /* AlertInfoView.xib */; };
 		AEC525B522C5BAA700AC8EB2 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525B322C5BAA700AC8EB2 /* Foundation+Extension.swift */; };
 		AEC525B622C5BAA700AC8EB2 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525B422C5BAA700AC8EB2 /* UIKit+Extension.swift */; };
 		AEC525B822C5BB7500AC8EB2 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525B722C5BB7500AC8EB2 /* Emoji.swift */; };
 		AEC525BB22C5E4FA00AC8EB2 /* BaseOperatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525BA22C5E4FA00AC8EB2 /* BaseOperatorViewModel.swift */; };
 		AEC525BE22C5E58500AC8EB2 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525BD22C5E58500AC8EB2 /* ViewModelProtocol.swift */; };
+		AEC525C422C602A300AC8EB2 /* BaseOperatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525C222C602A300AC8EB2 /* BaseOperatorVC.swift */; };
+		AEC525C522C602A300AC8EB2 /* BaseOperatorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEC525C322C602A300AC8EB2 /* BaseOperatorVC.xib */; };
 		AEE8508422C59F6700C46C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE8508322C59F6700C46C56 /* AppDelegate.swift */; };
 		AEE8508922C59F6700C46C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEE8508722C59F6700C46C56 /* Main.storyboard */; };
 		AEE8508B22C59F8200C46C56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEE8508A22C59F8200C46C56 /* Assets.xcassets */; };
@@ -43,14 +42,13 @@
 
 /* Begin PBXFileReference section */
 		AEC525A222C5AC8200AC8EB2 /* HomeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
-		AEC525AC22C5B70400AC8EB2 /* BaseOperatorTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseOperatorTVC.swift; sourceTree = "<group>"; };
-		AEC525AF22C5B7E200AC8EB2 /* AlertInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertInfoView.swift; sourceTree = "<group>"; };
-		AEC525B122C5B7EA00AC8EB2 /* AlertInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertInfoView.xib; sourceTree = "<group>"; };
 		AEC525B322C5BAA700AC8EB2 /* Foundation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
 		AEC525B422C5BAA700AC8EB2 /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
 		AEC525B722C5BB7500AC8EB2 /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		AEC525BA22C5E4FA00AC8EB2 /* BaseOperatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOperatorViewModel.swift; sourceTree = "<group>"; };
 		AEC525BD22C5E58500AC8EB2 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
+		AEC525C222C602A300AC8EB2 /* BaseOperatorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOperatorVC.swift; sourceTree = "<group>"; };
+		AEC525C322C602A300AC8EB2 /* BaseOperatorVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseOperatorVC.xib; sourceTree = "<group>"; };
 		AEE8508022C59F6700C46C56 /* LearnSwift5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnSwift5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEE8508322C59F6700C46C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEE8508822C59F6700C46C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 			children = (
 				AEC525BF22C5EB8A00AC8EB2 /* ViewModels */,
 				AEC525BC22C5E57600AC8EB2 /* Protocol */,
-				AEC525AE22C5B78E00AC8EB2 /* Views */,
 				AEC525A522C5B0C000AC8EB2 /* Extensions */,
 			);
 			path = Common;
@@ -149,18 +146,10 @@
 		AEC525AB22C5B70400AC8EB2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AEC525AC22C5B70400AC8EB2 /* BaseOperatorTVC.swift */,
+				AEC525C222C602A300AC8EB2 /* BaseOperatorVC.swift */,
+				AEC525C322C602A300AC8EB2 /* BaseOperatorVC.xib */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		AEC525AE22C5B78E00AC8EB2 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				AEC525AF22C5B7E200AC8EB2 /* AlertInfoView.swift */,
-				AEC525B122C5B7EA00AC8EB2 /* AlertInfoView.xib */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		AEC525B922C5E4D900AC8EB2 /* ViewModels */ = {
@@ -342,9 +331,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEE8508E22C59F8200C46C56 /* LaunchScreen.storyboard in Resources */,
-				AEC525B222C5B7EA00AC8EB2 /* AlertInfoView.xib in Resources */,
 				AEE8508B22C59F8200C46C56 /* Assets.xcassets in Resources */,
 				AEE8508922C59F6700C46C56 /* Main.storyboard in Resources */,
+				AEC525C522C602A300AC8EB2 /* BaseOperatorVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,11 +360,10 @@
 			files = (
 				AEC525B622C5BAA700AC8EB2 /* UIKit+Extension.swift in Sources */,
 				AEC525BB22C5E4FA00AC8EB2 /* BaseOperatorViewModel.swift in Sources */,
-				AEC525AD22C5B70400AC8EB2 /* BaseOperatorTVC.swift in Sources */,
 				AEC525A322C5AC8200AC8EB2 /* HomeTVC.swift in Sources */,
 				AEC525B522C5BAA700AC8EB2 /* Foundation+Extension.swift in Sources */,
 				AEC525B822C5BB7500AC8EB2 /* Emoji.swift in Sources */,
-				AEC525B022C5B7E200AC8EB2 /* AlertInfoView.swift in Sources */,
+				AEC525C422C602A300AC8EB2 /* BaseOperatorVC.swift in Sources */,
 				AEE8508422C59F6700C46C56 /* AppDelegate.swift in Sources */,
 				AEC525BE22C5E58500AC8EB2 /* ViewModelProtocol.swift in Sources */,
 			);

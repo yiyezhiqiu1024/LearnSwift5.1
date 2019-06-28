@@ -69,6 +69,8 @@ extension NSObject {
                     comletion(granted)
                 }
             })
+        @unknown default:
+            break
         }
     }
     
@@ -87,6 +89,8 @@ extension NSObject {
                     comletion(status == PHAuthorizationStatus.authorized ? true:false)
                 }
             })
+        @unknown default:
+            break
         }
     }
     
