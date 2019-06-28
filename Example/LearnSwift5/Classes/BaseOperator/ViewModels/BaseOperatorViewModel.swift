@@ -11,12 +11,17 @@ import UIKit
 class BaseOperatorViewModel: NSObject, ViewModelProtocol {
 
     // MARK: - properties
-    private lazy var baseOperatorDatas = ["常量", "变量"]
+    private lazy var baseOperatorDatas = ["常量的使用-use_constant",
+                                          "变量的使用-use_variable",
+                                          "标识符的使用-use_🐂🍺"]
+    
     private lazy var infoView: AlertInfoView = {
         let infoView = AlertInfoView.loadViewFromNib()
         infoView.frame = CGRect(origin: .zero, size: CGSize(width: 200, height: 200))
         infoView.isHidden = true
         infoView.backgroundColor = UIColor(rgb: 250)
+        infoView.textView.backgroundColor = .black
+        infoView.textView.textColor = .green
         infoView.closeBtn.addTarget(self, action: #selector(closeButtonDidTouch), for: .touchUpInside)
         return infoView
     }()
@@ -56,15 +61,14 @@ extension BaseOperatorViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        let text = baseOperatorDatas[indexPath.row]
+        let datas = text.split(separator: "-")
+        guard let title = datas.first else { return }
+        infoView.titleLabel.text = String(title)
         infoView.isHidden = false
-        let index = indexPath.row
-        let text = baseOperatorDatas[index]
-        infoView.titleLabel.text = text
-        if 0 == index {
-            use_constant()
-        } else if 1 == index {
-            use_variable()
-        }
+        guard let selectorName = datas.last else { return }
+        let aSelector = NSSelectorFromString(String(selectorName))
+        perform(aSelector)
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -82,7 +86,7 @@ extension BaseOperatorViewModel {
 // MARK: - 常量
 extension BaseOperatorViewModel {
     /// 常量的使用
-    fileprivate func use_constant() {
+     @objc fileprivate func use_constant() {
         /// 只能赋值一次
         /// 直接赋值
         let age1 = 10
@@ -102,7 +106,7 @@ extension BaseOperatorViewModel {
     }
     
     /// 变量的使用
-    fileprivate func use_variable() {
+     @objc fileprivate func use_variable() {
         
         /// 直接赋值
         var age1 = 10
@@ -124,6 +128,17 @@ extension BaseOperatorViewModel {
         
         let afterText = "最终的值：\n" + "age1 = \(age1)\n" + "age2 = \(age2)\n" + "age3 = \(age3)\n"
         infoView.textView.text = previousText + afterText
+    }
+    
+    /// 标识符的使用
+    /// 标识符（比如常量名、变量名、函数名）几乎可以使用任何字符
+    /// 标识符不能以数字开头，不能包含空白字符、制表符、箭头等特殊字符
+    @objc fileprivate func use_🐂🍺() {
+        let 👽 = "ET"
+        let milk = "🥛"
+        let text = 👽 + " like " + milk
+        myLog(text)
+        infoView.textView.text = text
     }
     
 }
