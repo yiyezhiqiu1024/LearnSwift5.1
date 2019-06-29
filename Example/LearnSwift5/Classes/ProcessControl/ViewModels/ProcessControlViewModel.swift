@@ -13,9 +13,16 @@ class ProcessControlViewModel: NSObject, ViewModelProtocol {
     // MARK: - Properties
     private var titleLabel : UILabel?
     private var logTV: UITextView?
-    private let titles = ["if-else"]
+    private let defalutLog = "尝试点击下方选项条，查看结果吧"
+    private var resultLog = ""
     
-    private let funNames = ["use_if_else"]
+    private let titles = ["if-else",
+                          "while",
+                          "repeat-while"]
+    
+    private let funNames = ["use_if_else",
+                            "use_while",
+                            "use_repeat_while"]
     
     // MARK: - Interface
     func bindView(_ bindView: UIView) {
@@ -30,6 +37,7 @@ class ProcessControlViewModel: NSObject, ViewModelProtocol {
             titleLabel = bindView as? UILabel
         } else if bindView.isMember(of: UITextView.self) {
             logTV = bindView as? UITextView
+            logTV?.text = defalutLog
         }
     }
 }
@@ -74,23 +82,55 @@ extension ProcessControlViewModel: UITableViewDelegate {
 extension ProcessControlViewModel {
     /// if-else
     @objc fileprivate func use_if_else() {
-        var log = "if后面的条件只能是Bool类型\n"
-        log += "if后面的条件可以省略小括号\n"
-        log += "条件后面的大括号不可以省略\n"
-        log += "age = 4\n"
+        /**
+         if后面的条件只能是Bool类型
+         if后面的条件可以省略小括号
+         条件后面的大括号不可以省略
+        */
+        let condition = "age = 4\n"
         
         let age = 4
         if age >= 22 {
-            log += "Get married"
+            resultLog = "Get married"
         } else if age >= 18 {
-            log += "Being a adult"
+            resultLog = "Being a adult"
         } else if age >= 7 {
-            log += "Go to school"
+            resultLog = "Go to school"
         } else {
-            log += "Just a child"
+            resultLog = "Just a child"
         }
         
-        logTV?.text = log
+        logTV?.text = condition + resultLog
+    }
+    
+    /// while
+    @objc fileprivate func use_while() {
+        
+        resultLog = ""
+        
+        var num = 5
+        while num > 0 {
+            resultLog += "num is \(num)\n"
+            num -= 1
+        }
+        
+        logTV?.text = resultLog
+    }
+    
+    /// repeat-while
+    @objc fileprivate func use_repeat_while() {
+        resultLog = ""
+        
+        let num = -1
+        
+        // repeate-whiel 相当于C语言中的 do-while
+        // 这里不用num--，是因为
+        // 从Swift3开始，去除了自增（++）、自减（--）运算符
+        repeat {
+            resultLog += "num is \(num)\n"
+        } while num > 0 // 打印1次
+        
+        logTV?.text = resultLog
     }
 }
 
