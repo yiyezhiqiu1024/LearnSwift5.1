@@ -14,11 +14,13 @@ class BasicGrammarViewModel: NSObject, ViewModelProtocol {
     private var logTV: UITextView?
     private let titles = ["常量的使用",
                           "变量的使用",
-                          "标识符的使用"]
+                          "标识符的使用",
+                          "整数类型的使用"]
     
     private let funNames = ["use_constant",
                             "use_variable",
-                            "use_🐂🍺"]
+                            "use_🐂🍺",
+                            "use_IntTypes"]
     
     // MARK: - Interface
     func bindView(_ bindView: UIView) {
@@ -129,6 +131,32 @@ extension BasicGrammarViewModel {
         let text = 👽 + " like " + milk
         myLog(text)
         logTV?.text = text
+    }
+    
+    // MARK: - 常见数据类型
+    /// 整数类型的使用
+    @objc fileprivate func use_IntTypes() {
+        /// 有符号
+        let int8: Int8 = -8
+        let int16: Int16 = -16
+        let int32: Int32 = -32
+        let int64: Int64 = -64
+        
+        /// 无符号
+        let uint8: UInt8 = 8
+        let uint16: UInt16 = 16
+        let uint32: UInt32 = 32
+        let uint64: UInt64 = 64
+        
+        /// 在32bit平台，Int等价于Int32, Int等价于Int64
+        // 整数的最值
+        let maxUInt8 = UInt8.max
+        let minInt16 = Int16.min
+        
+        /// 一般情况下，都是直接使用Int即可
+        let int = 10
+        
+        logTV?.text = "Int8 = \(int8)\nInt16 = \(int16)\nInt32 = \(int32)\nInt64 = \(int64)\n\nUInt8 = \(uint8)\nUInt16 = \(uint16)\nUInt32 = \(uint32)\nUInt64 = \(uint64)\n\nUInt8的最大值 = \(maxUInt8)\nInt16的最小值 = \(minInt16)\n\n一般情况下，都是直接使用Int即可\n Int = \(int)"
     }
     
 }
