@@ -18,11 +18,15 @@ class ProcessControlViewModel: NSObject, ViewModelProtocol {
     
     private let titles = ["if-else",
                           "while",
-                          "repeat-while"]
+                          "repeat-while",
+                          "for",
+                          "for-in-array"]
     
     private let funNames = ["use_if_else",
                             "use_while",
-                            "use_repeat_while"]
+                            "use_repeat_while",
+                            "use_for",
+                            "use_for_in_array"]
     
     // MARK: - Interface
     func bindView(_ bindView: UIView) {
@@ -87,7 +91,7 @@ extension ProcessControlViewModel {
          if后面的条件可以省略小括号
          条件后面的大括号不可以省略
         */
-        let condition = "age = 4\n"
+        let condition = "age = 4" + newLine
         
         let age = 4
         if age >= 22 {
@@ -110,7 +114,7 @@ extension ProcessControlViewModel {
         
         var num = 5
         while num > 0 {
-            resultLog += "num is \(num)\n"
+            resultLog += "num is \(num)" + newLine
             num -= 1
         }
         
@@ -127,11 +131,103 @@ extension ProcessControlViewModel {
         // 这里不用num--，是因为
         // 从Swift3开始，去除了自增（++）、自减（--）运算符
         repeat {
-            resultLog += "num is \(num)\n"
+            resultLog += "num is \(num)" + newLine
         } while num > 0 // 打印1次
         
         logTV?.text = resultLog
     }
+    
+    // for
+    @objc fileprivate func use_for() {
+        // 闭区间运算符：a...b，a<= 取值 <= b
+        resultLog = "闭区间运算符：a...b，a<= 取值 <= b" + newLine
+
+        let names = ["Anna", "Alex", "Brian", "Jack"]
+        resultLog += "names = \(names)" + newLine
+        
+        resultLog += newLine + "for i in 0...3" + newLine
+        for i in 0...3 {
+            resultLog += names[i] + " "
+        } // Anna Alex Brian Jack
+        
+        resultLog += newLine + newLine + "let range = 1...3" + newLine
+        let range = 1...3
+        
+        resultLog += "for i in range" + newLine
+        for i in range {
+            resultLog += (names[i] + " ")
+        } // Alex Brian Jack
+        
+        let a = 1
+        let b = 2
+        
+        resultLog += newLine + newLine + "a = 1" + newLine + "b = 2" + newLine + "for i in a...b" + newLine
+        for i in a...b {
+            resultLog += "\(names[i]) "
+        } // Alex Brian
+        
+        resultLog += newLine + newLine + "for i in a...3" + newLine
+        for i in a...3 {
+            resultLog += "\(names[i]) "
+        } // Alex Brian Jack
+        
+        resultLog += newLine + newLine + "for var i in 1...3" + newLine
+        // i默认是let，有需要时可以声明为var
+        for var i in 1...3 {
+            i += 5
+            resultLog += "\(i) "
+        } // 6 7 8
+        
+        resultLog += newLine + newLine + "for _ in 1...3" + newLine
+        for _ in 1...3 {
+            resultLog += "for "
+        } // 打印了3次
+        
+        // 半开区间运算符：a..b，a <= 取值 < b
+        resultLog += newLine + newLine + "半开区间运算符：a..b，a <= 取值 < b" + newLine
+        
+        resultLog += "for i in 1..<5 " + newLine
+        for i in 1..<5 {
+            resultLog += "\(i) "
+        } // 1 2 3 4
+        
+        logTV?.text = resultLog
+    }
+    
+    /// for-区间运算符用在数组上
+    @objc fileprivate func use_for_in_array() {
+        resultLog = "for-区间运算符用在数组上" + newLine
+        
+        let names = ["Anna", "Alex", "Brian", "Jack"]
+        resultLog += "names = \(names)" + newLine
+        
+        resultLog += newLine + "for i in 0...3" + newLine
+        for i in 0...3 {
+            resultLog += names[i] + " "
+        } // Anna Alex Brian Jack
+        
+        // 单侧区间：让区间朝一个方向尽可能的远
+        resultLog += newLine + newLine + "单侧区间：让区间朝一个方向尽可能的远" + newLine
+        
+        resultLog += "for name in names[2...]" + newLine
+        for name in names[2...] {
+            resultLog += "\(name) "
+        } // Brian Jack
+        
+        resultLog += newLine + newLine + "for name in names[...2]" + newLine
+        for name in names[...2] {
+            resultLog += "\(name) "
+        } // Anna Alex Brian
+        
+        resultLog += newLine + newLine + "for name in names[..<2]" + newLine
+        for name in names[..<2] {
+            resultLog += "\(name) "
+        } // Anna Alex
+        
+        logTV?.text = resultLog
+    }
+    
+    
 }
 
 

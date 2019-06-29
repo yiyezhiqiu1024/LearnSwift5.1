@@ -11,6 +11,7 @@
 		929E835722C796F200D2D946 /* ProcessControlVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929E835522C796F200D2D946 /* ProcessControlVC.xib */; };
 		929E835A22C7978600D2D946 /* ProcessControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929E835922C7978600D2D946 /* ProcessControlViewModel.swift */; };
 		929E835D22C79BAE00D2D946 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929E835C22C79BAE00D2D946 /* HomeViewModel.swift */; };
+		929E835F22C7BB6C00D2D946 /* const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929E835E22C7BB6C00D2D946 /* const.swift */; };
 		AEC525A322C5AC8200AC8EB2 /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525A222C5AC8200AC8EB2 /* HomeTVC.swift */; };
 		AEC525B522C5BAA700AC8EB2 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525B322C5BAA700AC8EB2 /* Foundation+Extension.swift */; };
 		AEC525B622C5BAA700AC8EB2 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525B422C5BAA700AC8EB2 /* UIKit+Extension.swift */; };
@@ -49,6 +50,7 @@
 		929E835522C796F200D2D946 /* ProcessControlVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProcessControlVC.xib; sourceTree = "<group>"; };
 		929E835922C7978600D2D946 /* ProcessControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessControlViewModel.swift; sourceTree = "<group>"; };
 		929E835C22C79BAE00D2D946 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		929E835E22C7BB6C00D2D946 /* const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = const.swift; sourceTree = "<group>"; };
 		AEC525A222C5AC8200AC8EB2 /* HomeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
 		AEC525B322C5BAA700AC8EB2 /* Foundation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
 		AEC525B422C5BAA700AC8EB2 /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				AEC525BF22C5EB8A00AC8EB2 /* ViewModels */,
 				AEC525BC22C5E57600AC8EB2 /* Protocol */,
 				AEC525A522C5B0C000AC8EB2 /* Extensions */,
+				929E835E22C7BB6C00D2D946 /* const.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				AEC525B822C5BB7500AC8EB2 /* Emoji.swift in Sources */,
 				AEC525C422C602A300AC8EB2 /* BasicGrammarVC.swift in Sources */,
 				AEE8508422C59F6700C46C56 /* AppDelegate.swift in Sources */,
+				929E835F22C7BB6C00D2D946 /* const.swift in Sources */,
 				929E835622C796F200D2D946 /* ProcessControlVC.swift in Sources */,
 				AEC525BE22C5E58500AC8EB2 /* ViewModelProtocol.swift in Sources */,
 			);
