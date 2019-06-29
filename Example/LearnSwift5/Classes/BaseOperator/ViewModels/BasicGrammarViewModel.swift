@@ -16,13 +16,15 @@ class BasicGrammarViewModel: NSObject, ViewModelProtocol {
                           "变量的使用",
                           "标识符的使用",
                           "整数类型的使用",
-                          "浮点类型的使用"]
+                          "浮点类型的使用",
+                          "字面量的使用"]
     
     private let funNames = ["use_constant",
                             "use_variable",
                             "use_🐂🍺",
                             "use_IntTypes",
-                            "use_FloatAndDoubleTypes"]
+                            "use_FloatAndDoubleTypes",
+                            "use_literal"]
     
     // MARK: - Interface
     func bindView(_ bindView: UIView) {
@@ -131,34 +133,36 @@ extension BasicGrammarViewModel {
         let 👽 = "ET"
         let milk = "🥛"
         let text = 👽 + " like " + milk
-        myLog(text)
         logTV?.text = text
     }
     
     // MARK: - 常见数据类型
     /// 整数类型的使用
     @objc fileprivate func use_IntTypes() {
+        var log = ""
         /// 有符号
         let int8: Int8 = -8
         let int16: Int16 = -16
         let int32: Int32 = -32
         let int64: Int64 = -64
+        log += "Int8 = \(int8)\nInt16 = \(int16)\nInt32 = \(int32)\nInt64 = \(int64)"
         
         /// 无符号
         let uint8: UInt8 = 8
         let uint16: UInt16 = 16
         let uint32: UInt32 = 32
         let uint64: UInt64 = 64
+        log += "\n\nUInt8 = \(uint8)\nUInt16 = \(uint16)\nUInt32 = \(uint32)\nUInt64 = \(uint64)"
         
         /// 在32bit平台，Int等价于Int32, Int等价于Int64
         // 整数的最值
         let maxUInt8 = UInt8.max
         let minInt16 = Int16.min
+        log += "\n\nUInt8的最大值 = \(maxUInt8)\nInt16的最小值 = \(minInt16)"
         
         /// 一般情况下，都是直接使用Int即可
         let int = 10
-        
-        logTV?.text = "Int8 = \(int8)\nInt16 = \(int16)\nInt32 = \(int32)\nInt64 = \(int64)\n\nUInt8 = \(uint8)\nUInt16 = \(uint16)\nUInt32 = \(uint32)\nUInt64 = \(uint64)\n\nUInt8的最大值 = \(maxUInt8)\nInt16的最小值 = \(minInt16)\n\n一般情况下，都是直接使用Int即可\n Int = \(int)"
+        logTV?.text = log + "\n\n一般情况下，都是直接使用Int即可\n Int = \(int)"
     }
     
     /// 浮点类型的使用
@@ -170,6 +174,81 @@ extension BasicGrammarViewModel {
         let double: Double = 10.0
         
         logTV?.text = "Float: 32位，精度只有6位\nFloat = \(float)\n\nDouble: 64位，精度至少15位\nDouble = \(double)"
+    }
+    
+    /// 字面量的使用
+    @objc fileprivate func use_literal() {
+        
+        /// 布尔
+        var log = "布尔\n"
+        let bool = true // 取反是false
+        log += "Bool = \(bool)\n"
+        
+        // 字符串
+        log += "\n字符串\n"
+        let string = "SLZeng"
+        log += "String = " + string + "\n"
+        
+        // 字符（可存储ASSCII字符、Unicode字符）
+        log += "\n字符（可存储ASSCII字符、Unicode字符）\n"
+        let character: Character = "🐶"
+        log += "Character = \(character)\n"
+        
+        // 整数
+        log += "\n整数\n"
+        let intBinary = 0b10001 // 二进制
+        log += "二进制 0b10001 = \(intBinary)\n"
+        
+        let intOctal = 0o21 // 八进制
+        log += "八进制 0o21 = \(intOctal)\n"
+        
+        let intDecimal = 17 // 十进制
+        log += "十进制 17 = \(intDecimal)\n"
+        
+        let intHexadecimal = 0x11 // 十六进制
+        log += "十六进制 0x11 = \(intHexadecimal)\n"
+        
+        // 浮点数
+        log += "\n浮点数\n"
+        
+        let doubleDecimal1 = 125.0 // 十进制，
+        log += "十进制 125.0 = \(doubleDecimal1)\n"
+        log += "125等价于1.25e2， 0.0125等价于1.25e-2\n"
+        
+        let doubleDecimal2 = 12.1875 // 十进制
+        log += "十进制 12.1875 = \(doubleDecimal2)\n"
+        
+        let doubleDecimal3 = 1.21875e1 // 十进制
+        log += "十进制 1.21875e1 = \(doubleDecimal3)\n"
+        
+        let doubleHexadecimal1 = 0xFp2 // 十六进制
+        log += "十六进制 0xFp2 = \(doubleHexadecimal1)\n"
+        log += "意味着15×2^2，相当于十进制的60.0\n"
+        
+        let doubleHexadecimal2 = 0xFp-2 // 十六进制
+        log += "十六进制 0xFp-2 = \(doubleHexadecimal2)\n"
+        log += "意味着15×2-2，相当于十进制的3.75\n"
+        
+        let doubleHexadecimal3 = 0xC.3P0 // 十六进制
+        log += "十六进制 0xC.3P0 = \(doubleHexadecimal3)\n"
+        
+        log += "\n整数和浮点数可以添加额外的零或者下划线来增强可读性\n"
+        log += "例如：100_0000、1_000_000.000_000_1、000123.456\n"
+        
+        /// 数组
+        log += "\n数组\n"
+        let array = [1, 3, 5, 7, 9]
+        log += "array = \(array)\n"
+        
+        /// 字典
+        log += "\n字典\n"
+        let dictionary: [String : Any] = ["name" : "SLZeng",
+                                          "age" : 18,
+                                          "heigth" : 178,
+                                          "weight" : 120]
+        log += "dictionary = \(dictionary)"
+        
+        logTV?.text = log
     }
     
 }
