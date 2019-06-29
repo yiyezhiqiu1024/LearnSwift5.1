@@ -10,6 +10,7 @@
 		929E835622C796F200D2D946 /* ProcessControlVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929E835422C796F200D2D946 /* ProcessControlVC.swift */; };
 		929E835722C796F200D2D946 /* ProcessControlVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929E835522C796F200D2D946 /* ProcessControlVC.xib */; };
 		929E835A22C7978600D2D946 /* ProcessControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929E835922C7978600D2D946 /* ProcessControlViewModel.swift */; };
+		929E835D22C79BAE00D2D946 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929E835C22C79BAE00D2D946 /* HomeViewModel.swift */; };
 		AEC525A322C5AC8200AC8EB2 /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525A222C5AC8200AC8EB2 /* HomeTVC.swift */; };
 		AEC525B522C5BAA700AC8EB2 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525B322C5BAA700AC8EB2 /* Foundation+Extension.swift */; };
 		AEC525B622C5BAA700AC8EB2 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525B422C5BAA700AC8EB2 /* UIKit+Extension.swift */; };
@@ -47,6 +48,7 @@
 		929E835422C796F200D2D946 /* ProcessControlVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessControlVC.swift; sourceTree = "<group>"; };
 		929E835522C796F200D2D946 /* ProcessControlVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProcessControlVC.xib; sourceTree = "<group>"; };
 		929E835922C7978600D2D946 /* ProcessControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessControlViewModel.swift; sourceTree = "<group>"; };
+		929E835C22C79BAE00D2D946 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		AEC525A222C5AC8200AC8EB2 /* HomeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
 		AEC525B322C5BAA700AC8EB2 /* Foundation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
 		AEC525B422C5BAA700AC8EB2 /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
@@ -120,6 +122,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		929E835B22C79B9900D2D946 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				929E835C22C79BAE00D2D946 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		AEC5259F22C5AC6300AC8EB2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +144,7 @@
 		AEC525A022C5AC6300AC8EB2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				929E835B22C79B9900D2D946 /* ViewModels */,
 				AEC525A122C5AC6300AC8EB2 /* Controllers */,
 			);
 			path = Home;
@@ -393,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				929E835A22C7978600D2D946 /* ProcessControlViewModel.swift in Sources */,
+				929E835D22C79BAE00D2D946 /* HomeViewModel.swift in Sources */,
 				AEC525B622C5BAA700AC8EB2 /* UIKit+Extension.swift in Sources */,
 				AEC525BB22C5E4FA00AC8EB2 /* BasicGrammarViewModel.swift in Sources */,
 				AEC525A322C5AC8200AC8EB2 /* HomeTVC.swift in Sources */,

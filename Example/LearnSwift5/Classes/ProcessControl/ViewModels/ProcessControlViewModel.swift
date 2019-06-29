@@ -13,7 +13,7 @@ class ProcessControlViewModel: NSObject, ViewModelProtocol {
     // MARK: - Properties
     private var titleLabel : UILabel?
     private var logTV: UITextView?
-    private let titles = ["if-else的使用"]
+    private let titles = ["if-else"]
     
     private let funNames = ["use_if_else"]
     
@@ -70,9 +70,9 @@ extension ProcessControlViewModel: UITableViewDelegate {
     }
 }
 
-// MARK: - 常量
+// MARK: - 流程控制
 extension ProcessControlViewModel {
-    /// if-else的使用
+    /// if-else
     @objc fileprivate func use_if_else() {
         var log = "if后面的条件只能是Bool类型\n"
         log += "if后面的条件可以省略小括号\n"

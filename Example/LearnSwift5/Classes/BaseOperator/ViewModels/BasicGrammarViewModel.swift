@@ -12,14 +12,14 @@ class BasicGrammarViewModel: NSObject, ViewModelProtocol {
     // MARK: - Properties
     private var titleLabel : UILabel?
     private var logTV: UITextView?
-    private let titles = ["常量的使用",
-                          "变量的使用",
-                          "标识符的使用",
-                          "整数类型的使用",
-                          "浮点类型的使用",
-                          "字面量的使用",
-                          "类型转换的使用",
-                          "元组的使用"]
+    private let titles = ["常量",
+                          "变量",
+                          "标识符",
+                          "整数类型",
+                          "浮点类型",
+                          "字面量",
+                          "类型转换",
+                          "元组"]
     
     private let funNames = ["use_constant",
                             "use_variable",
@@ -83,9 +83,9 @@ extension BasicGrammarViewModel: UITableViewDelegate {
     }
 }
 
-// MARK: - 常量
+// MARK: - 基础语法
 extension BasicGrammarViewModel {
-    /// 常量的使用
+    /// 常量
      @objc fileprivate func use_constant() {
         // 只能赋值一次
         // 直接赋值
@@ -105,7 +105,7 @@ extension BasicGrammarViewModel {
         return 30
     }
     
-    /// 变量的使用
+    /// 变量
      @objc fileprivate func use_variable() {
         
         // 直接赋值
@@ -130,7 +130,7 @@ extension BasicGrammarViewModel {
         logTV?.text = previousText + afterText
     }
     
-    /// 标识符的使用
+    /// 标识符
     /// 标识符（比如常量名、变量名、函数名）几乎可以使用任何字符
     /// 标识符不能以数字开头，不能包含空白字符、制表符、箭头等特殊字符
     @objc fileprivate func use_🐂🍺() {
@@ -141,7 +141,7 @@ extension BasicGrammarViewModel {
     }
     
     // MARK: - 常见数据类型
-    /// 整数类型的使用
+    /// 整数类型
     @objc fileprivate func use_IntTypes() {
         var log = ""
         // 有符号
@@ -169,7 +169,7 @@ extension BasicGrammarViewModel {
         logTV?.text = log + "\n\n一般情况下，都是直接使用Int即可\n Int = \(int)"
     }
     
-    /// 浮点类型的使用
+    /// 浮点类型
     @objc fileprivate func use_FloatAndDoubleTypes() {
         // Float: 32位，精度只有6位
         let float: Float = 10.0
@@ -180,7 +180,7 @@ extension BasicGrammarViewModel {
         logTV?.text = "Float: 32位，精度只有6位\nFloat = \(float)\n\nDouble: 64位，精度至少15位\nDouble = \(double)"
     }
     
-    /// 字面量的使用
+    /// 字面量
     @objc fileprivate func use_literal() {
         
         // 布尔
@@ -255,7 +255,7 @@ extension BasicGrammarViewModel {
         logTV?.text = log
     }
     
-    /// 类型装换的使用
+    /// 类型装换
     @objc fileprivate func use_convertTypes() {
         // 整数转换
         var log = "整数转换\n"
@@ -294,7 +294,7 @@ extension BasicGrammarViewModel {
         logTV?.text = log
     }
     
-    /// 元组的使用
+    /// 元组
     @objc fileprivate func use_Tuple() {
         // 方式1
         var log = "方式1\n"
