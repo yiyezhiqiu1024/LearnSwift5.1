@@ -18,7 +18,8 @@ class BasicGrammarViewModel: NSObject, ViewModelProtocol {
                           "整数类型的使用",
                           "浮点类型的使用",
                           "字面量的使用",
-                          "类型转换的使用"]
+                          "类型转换的使用",
+                          "元组的使用"]
     
     private let funNames = ["use_constant",
                             "use_variable",
@@ -26,7 +27,8 @@ class BasicGrammarViewModel: NSObject, ViewModelProtocol {
                             "use_IntTypes",
                             "use_FloatAndDoubleTypes",
                             "use_literal",
-                            "use_convertTypes"]
+                            "use_convertTypes",
+                            "use_Tuple"]
     
     // MARK: - Interface
     func bindView(_ bindView: UIView) {
@@ -257,6 +259,7 @@ extension BasicGrammarViewModel {
     @objc fileprivate func use_convertTypes() {
         // 整数转换
         var log = "整数转换\n"
+        
         let int1: UInt16 = 2_000
         log += "int1: UInt16 = \(int1)\n"
         
@@ -266,8 +269,9 @@ extension BasicGrammarViewModel {
         let int3 = int1 + UInt16(int2)
         log += "int1 + UInt16(int2) = \(int3)\n"
         
-        // 整数、浮点数转换
+        // 整数、浮点数转换的使用
         log += "\n整数、浮点数转换\n"
+        
         let int = 3
         log += "int = 3\n"
         
@@ -282,9 +286,44 @@ extension BasicGrammarViewModel {
         
         
         // 字面量可以直接相加，因为数字字面量本身没有明确类型
-        log += "\n字面量可以直接相加，因为数字字面量本身没有明确类型\n"
         let result = 3 + 0.14159
+        
+        log += "\n字面量可以直接相加，因为数字字面量本身没有明确类型\n"
         log += "3 + 0.14159 = \(result)"
+        
+        logTV?.text = log
+    }
+    
+    /// 元组的使用
+    @objc fileprivate func use_Tuple() {
+        // 方式1
+        var log = "方式1\n"
+        
+        let http404Error = (404, "Not Found")
+        log += "let http404Error = (404, \"Not Found\")\n"
+        log += "The status code is \(http404Error.0)\n"
+        
+        // 方式2
+        log += "\n方式1\n"
+        
+        let (statusCode, statusMessage) = http404Error
+        log += "let (statusCode, statusMessage) = http404Error\n"
+        log += "The status code is \(statusCode)\n"
+        log += "The status message is \(statusMessage)\n"
+        
+        // 方式3
+        log += "\n方式3\n"
+        
+        let (justTheStatusCode, _) = http404Error
+        log += "let (justTheStatusCode, _) = http404Error\n"
+        log += "The status code is \(justTheStatusCode)\n"
+        
+        // 方式4
+        log += "\n方式4\n"
+        
+        let http200Status = (statusCode: 200, description: "OK")
+        log += "let http200Status = (statusCode: 200, description: \"OK\")\n"
+        log += "The status code is \(http200Status.statusCode)"
         
         logTV?.text = log
     }
