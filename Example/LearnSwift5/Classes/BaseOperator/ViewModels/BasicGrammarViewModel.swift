@@ -1,5 +1,5 @@
 //
-//  BaseOperatorViewModel.swift
+//  BasicGrammarViewModel.swift
 //  LearnSwift5
 //
 //  Created by CoderSLZeng on 2019/6/28.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseOperatorViewModel: NSObject, ViewModelProtocol {
+class BasicGrammarViewModel: NSObject, ViewModelProtocol {
     // MARK: - Properties
     private var titleLabel : UILabel?
     private var logTV: UITextView?
@@ -38,7 +38,7 @@ class BaseOperatorViewModel: NSObject, ViewModelProtocol {
 }
 
 // MARK: - Table view data source
-extension BaseOperatorViewModel: UITableViewDataSource {
+extension BasicGrammarViewModel: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titles.count
     }
@@ -57,7 +57,7 @@ extension BaseOperatorViewModel: UITableViewDataSource {
 }
 
 // MARK: - Table view delegate
-extension BaseOperatorViewModel: UITableViewDelegate {
+extension BasicGrammarViewModel: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -74,7 +74,7 @@ extension BaseOperatorViewModel: UITableViewDelegate {
 }
 
 // MARK: - 常量
-extension BaseOperatorViewModel {
+extension BasicGrammarViewModel {
     /// 常量的使用
      @objc fileprivate func use_constant() {
         /// 只能赋值一次

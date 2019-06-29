@@ -1,5 +1,5 @@
 //
-//  BaseOperatorVC.swift
+//  BasicGrammarVC.swift
 //  LearnSwift5
 //
 //  Created by CoderSLZeng on 2019/6/28.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseOperatorVC: UIViewController {
+class BasicGrammarVC: UIViewController {
 
     // MARK: - properties
     @IBOutlet weak var headerView: UIView!
@@ -17,7 +17,7 @@ class BaseOperatorVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Lazy
-    lazy var baseOperatorVM = BaseOperatorViewModel()
+    lazy var baseOperatorVM = BasicGrammarViewModel()
 
     // MARK: - Life cycle
     override func viewDidLoad() {

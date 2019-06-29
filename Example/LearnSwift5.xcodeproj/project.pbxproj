@@ -11,10 +11,10 @@
 		AEC525B522C5BAA700AC8EB2 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525B322C5BAA700AC8EB2 /* Foundation+Extension.swift */; };
 		AEC525B622C5BAA700AC8EB2 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525B422C5BAA700AC8EB2 /* UIKit+Extension.swift */; };
 		AEC525B822C5BB7500AC8EB2 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525B722C5BB7500AC8EB2 /* Emoji.swift */; };
-		AEC525BB22C5E4FA00AC8EB2 /* BaseOperatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525BA22C5E4FA00AC8EB2 /* BaseOperatorViewModel.swift */; };
+		AEC525BB22C5E4FA00AC8EB2 /* BasicGrammarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525BA22C5E4FA00AC8EB2 /* BasicGrammarViewModel.swift */; };
 		AEC525BE22C5E58500AC8EB2 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525BD22C5E58500AC8EB2 /* ViewModelProtocol.swift */; };
-		AEC525C422C602A300AC8EB2 /* BaseOperatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525C222C602A300AC8EB2 /* BaseOperatorVC.swift */; };
-		AEC525C522C602A300AC8EB2 /* BaseOperatorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEC525C322C602A300AC8EB2 /* BaseOperatorVC.xib */; };
+		AEC525C422C602A300AC8EB2 /* BasicGrammarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525C222C602A300AC8EB2 /* BasicGrammarVC.swift */; };
+		AEC525C522C602A300AC8EB2 /* BasicGrammarVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEC525C322C602A300AC8EB2 /* BasicGrammarVC.xib */; };
 		AEE8508422C59F6700C46C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE8508322C59F6700C46C56 /* AppDelegate.swift */; };
 		AEE8508922C59F6700C46C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEE8508722C59F6700C46C56 /* Main.storyboard */; };
 		AEE8508B22C59F8200C46C56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEE8508A22C59F8200C46C56 /* Assets.xcassets */; };
@@ -45,10 +45,10 @@
 		AEC525B322C5BAA700AC8EB2 /* Foundation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
 		AEC525B422C5BAA700AC8EB2 /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
 		AEC525B722C5BB7500AC8EB2 /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
-		AEC525BA22C5E4FA00AC8EB2 /* BaseOperatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOperatorViewModel.swift; sourceTree = "<group>"; };
+		AEC525BA22C5E4FA00AC8EB2 /* BasicGrammarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicGrammarViewModel.swift; sourceTree = "<group>"; };
 		AEC525BD22C5E58500AC8EB2 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
-		AEC525C222C602A300AC8EB2 /* BaseOperatorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOperatorVC.swift; sourceTree = "<group>"; };
-		AEC525C322C602A300AC8EB2 /* BaseOperatorVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseOperatorVC.xib; sourceTree = "<group>"; };
+		AEC525C222C602A300AC8EB2 /* BasicGrammarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicGrammarVC.swift; sourceTree = "<group>"; };
+		AEC525C322C602A300AC8EB2 /* BasicGrammarVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicGrammarVC.xib; sourceTree = "<group>"; };
 		AEE8508022C59F6700C46C56 /* LearnSwift5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnSwift5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEE8508322C59F6700C46C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEE8508822C59F6700C46C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -146,8 +146,8 @@
 		AEC525AB22C5B70400AC8EB2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AEC525C222C602A300AC8EB2 /* BaseOperatorVC.swift */,
-				AEC525C322C602A300AC8EB2 /* BaseOperatorVC.xib */,
+				AEC525C222C602A300AC8EB2 /* BasicGrammarVC.swift */,
+				AEC525C322C602A300AC8EB2 /* BasicGrammarVC.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -155,7 +155,7 @@
 		AEC525B922C5E4D900AC8EB2 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				AEC525BA22C5E4FA00AC8EB2 /* BaseOperatorViewModel.swift */,
+				AEC525BA22C5E4FA00AC8EB2 /* BasicGrammarViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -333,7 +333,7 @@
 				AEE8508E22C59F8200C46C56 /* LaunchScreen.storyboard in Resources */,
 				AEE8508B22C59F8200C46C56 /* Assets.xcassets in Resources */,
 				AEE8508922C59F6700C46C56 /* Main.storyboard in Resources */,
-				AEC525C522C602A300AC8EB2 /* BaseOperatorVC.xib in Resources */,
+				AEC525C522C602A300AC8EB2 /* BasicGrammarVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,11 +359,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEC525B622C5BAA700AC8EB2 /* UIKit+Extension.swift in Sources */,
-				AEC525BB22C5E4FA00AC8EB2 /* BaseOperatorViewModel.swift in Sources */,
+				AEC525BB22C5E4FA00AC8EB2 /* BasicGrammarViewModel.swift in Sources */,
 				AEC525A322C5AC8200AC8EB2 /* HomeTVC.swift in Sources */,
 				AEC525B522C5BAA700AC8EB2 /* Foundation+Extension.swift in Sources */,
 				AEC525B822C5BB7500AC8EB2 /* Emoji.swift in Sources */,
-				AEC525C422C602A300AC8EB2 /* BaseOperatorVC.swift in Sources */,
+				AEC525C422C602A300AC8EB2 /* BasicGrammarVC.swift in Sources */,
 				AEE8508422C59F6700C46C56 /* AppDelegate.swift in Sources */,
 				AEC525BE22C5E58500AC8EB2 /* ViewModelProtocol.swift in Sources */,
 			);
