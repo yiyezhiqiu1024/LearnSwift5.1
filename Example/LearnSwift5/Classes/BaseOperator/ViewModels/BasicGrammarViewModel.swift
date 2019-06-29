@@ -17,14 +17,16 @@ class BasicGrammarViewModel: NSObject, ViewModelProtocol {
                           "标识符的使用",
                           "整数类型的使用",
                           "浮点类型的使用",
-                          "字面量的使用"]
+                          "字面量的使用",
+                          "类型转换的使用"]
     
     private let funNames = ["use_constant",
                             "use_variable",
                             "use_🐂🍺",
                             "use_IntTypes",
                             "use_FloatAndDoubleTypes",
-                            "use_literal"]
+                            "use_literal",
+                            "use_convertTypes"]
     
     // MARK: - Interface
     func bindView(_ bindView: UIView) {
@@ -83,15 +85,15 @@ extension BasicGrammarViewModel: UITableViewDelegate {
 extension BasicGrammarViewModel {
     /// 常量的使用
      @objc fileprivate func use_constant() {
-        /// 只能赋值一次
-        /// 直接赋值
+        // 只能赋值一次
+        // 直接赋值
         let age1 = 10
         
-        /// 先定义，后赋值
+        // 先定义，后赋值
         let age2: Int
         age2 = 20
         
-        /// 函数返回值
+        // 函数返回值
         let age3 = getAge()
         
         logTV?.text = "age1 = \(age1)\n" + "age2 = \(age2)\n" + "age3 = \(age3)\n"
@@ -104,19 +106,19 @@ extension BasicGrammarViewModel {
     /// 变量的使用
      @objc fileprivate func use_variable() {
         
-        /// 直接赋值
+        // 直接赋值
         var age1 = 10
         
-        /// 先定义，后赋值
+        // 先定义，后赋值
         var age2: Int
         age2 = 20
         
-        /// 函数返回值
+        // 函数返回值
         var age3 = getAge()
         
         let previousText = "原始的值：\n" + "age1 = \(age1)\n" + "age2 = \(age2)\n" + "age3 = \(age3)\n"
         
-        /// 修改原始的值
+        // 修改原始的值
         let temp = age1
         age1 = age2
         age2 = age3
@@ -140,27 +142,27 @@ extension BasicGrammarViewModel {
     /// 整数类型的使用
     @objc fileprivate func use_IntTypes() {
         var log = ""
-        /// 有符号
+        // 有符号
         let int8: Int8 = -8
         let int16: Int16 = -16
         let int32: Int32 = -32
         let int64: Int64 = -64
         log += "Int8 = \(int8)\nInt16 = \(int16)\nInt32 = \(int32)\nInt64 = \(int64)"
         
-        /// 无符号
+        // 无符号
         let uint8: UInt8 = 8
         let uint16: UInt16 = 16
         let uint32: UInt32 = 32
         let uint64: UInt64 = 64
         log += "\n\nUInt8 = \(uint8)\nUInt16 = \(uint16)\nUInt32 = \(uint32)\nUInt64 = \(uint64)"
         
-        /// 在32bit平台，Int等价于Int32, Int等价于Int64
+        // 在32bit平台，Int等价于Int32, Int等价于Int64
         // 整数的最值
         let maxUInt8 = UInt8.max
         let minInt16 = Int16.min
         log += "\n\nUInt8的最大值 = \(maxUInt8)\nInt16的最小值 = \(minInt16)"
         
-        /// 一般情况下，都是直接使用Int即可
+        // 一般情况下，都是直接使用Int即可
         let int = 10
         logTV?.text = log + "\n\n一般情况下，都是直接使用Int即可\n Int = \(int)"
     }
@@ -179,7 +181,7 @@ extension BasicGrammarViewModel {
     /// 字面量的使用
     @objc fileprivate func use_literal() {
         
-        /// 布尔
+        // 布尔
         var log = "布尔\n"
         let bool = true // 取反是false
         log += "Bool = \(bool)\n"
@@ -235,12 +237,12 @@ extension BasicGrammarViewModel {
         log += "\n整数和浮点数可以添加额外的零或者下划线来增强可读性\n"
         log += "例如：100_0000、1_000_000.000_000_1、000123.456\n"
         
-        /// 数组
+        // 数组
         log += "\n数组\n"
         let array = [1, 3, 5, 7, 9]
         log += "array = \(array)\n"
         
-        /// 字典
+        // 字典
         log += "\n字典\n"
         let dictionary: [String : Any] = ["name" : "SLZeng",
                                           "age" : 18,
@@ -251,4 +253,39 @@ extension BasicGrammarViewModel {
         logTV?.text = log
     }
     
+    /// 类型装换的使用
+    @objc fileprivate func use_convertTypes() {
+        // 整数转换
+        var log = "整数转换\n"
+        let int1: UInt16 = 2_000
+        log += "int1: UInt16 = \(int1)\n"
+        
+        let int2: UInt8 = 1
+        log += "int2: UInt8 = \(int2)\n"
+        
+        let int3 = int1 + UInt16(int2)
+        log += "int1 + UInt16(int2) = \(int3)\n"
+        
+        // 整数、浮点数转换
+        log += "\n整数、浮点数转换\n"
+        let int = 3
+        log += "int = 3\n"
+        
+        let double = 0.14159
+        log += "double = 0.14159\n"
+        
+        let doublePi = Double(int) + double
+        log += "Double(int) + double = \(doublePi)\n"
+        
+        let intPi = Int(doublePi)
+        log += "Int(doublePi) = \(intPi)\n"
+        
+        
+        // 字面量可以直接相加，因为数字字面量本身没有明确类型
+        log += "\n字面量可以直接相加，因为数字字面量本身没有明确类型\n"
+        let result = 3 + 0.14159
+        log += "3 + 0.14159 = \(result)"
+        
+        logTV?.text = log
+    }
 }
