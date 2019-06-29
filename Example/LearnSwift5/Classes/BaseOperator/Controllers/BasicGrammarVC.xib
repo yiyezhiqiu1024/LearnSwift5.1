@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BasicGrammarVC" customModule="LearnSwift5" customModuleProvider="target">
             <connections>
-                <outlet property="headerView" destination="JuV-89-gTo" id="yXV-Pb-xG2"/>
                 <outlet property="logTV" destination="63Q-GY-rTv" id="MjP-7P-uUH"/>
                 <outlet property="tableView" destination="fgU-Fp-AcT" id="5Vb-fK-bbR"/>
                 <outlet property="titleLabel" destination="J3P-dl-5qb" id="fe9-Kf-fmC"/>

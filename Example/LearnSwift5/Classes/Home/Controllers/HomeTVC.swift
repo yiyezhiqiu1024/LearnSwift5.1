@@ -11,7 +11,8 @@ import UIKit
 class HomeTVC: UITableViewController {
     
     // MARK: - properties
-    lazy var rows = ["基础语法-BasicGrammarVC"]
+    lazy var rows = ["基础语法-BasicGrammarVC",
+                     "流程控制-ProcessControlVC"]
     
     // MARK: - Life cycle
     override func viewDidLoad() {

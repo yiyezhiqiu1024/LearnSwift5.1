@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		929E835622C796F200D2D946 /* ProcessControlVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929E835422C796F200D2D946 /* ProcessControlVC.swift */; };
+		929E835722C796F200D2D946 /* ProcessControlVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929E835522C796F200D2D946 /* ProcessControlVC.xib */; };
+		929E835A22C7978600D2D946 /* ProcessControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929E835922C7978600D2D946 /* ProcessControlViewModel.swift */; };
 		AEC525A322C5AC8200AC8EB2 /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525A222C5AC8200AC8EB2 /* HomeTVC.swift */; };
 		AEC525B522C5BAA700AC8EB2 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525B322C5BAA700AC8EB2 /* Foundation+Extension.swift */; };
 		AEC525B622C5BAA700AC8EB2 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525B422C5BAA700AC8EB2 /* UIKit+Extension.swift */; };
@@ -41,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		929E835422C796F200D2D946 /* ProcessControlVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessControlVC.swift; sourceTree = "<group>"; };
+		929E835522C796F200D2D946 /* ProcessControlVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProcessControlVC.xib; sourceTree = "<group>"; };
+		929E835922C7978600D2D946 /* ProcessControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessControlViewModel.swift; sourceTree = "<group>"; };
 		AEC525A222C5AC8200AC8EB2 /* HomeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
 		AEC525B322C5BAA700AC8EB2 /* Foundation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
 		AEC525B422C5BAA700AC8EB2 /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
@@ -88,9 +94,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		929E834E22C7966A00D2D946 /* ProcessControl */ = {
+			isa = PBXGroup;
+			children = (
+				929E835822C7977400D2D946 /* ViewModels */,
+				929E834F22C7967400D2D946 /* Controllers */,
+			);
+			path = ProcessControl;
+			sourceTree = "<group>";
+		};
+		929E834F22C7967400D2D946 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				929E835422C796F200D2D946 /* ProcessControlVC.swift */,
+				929E835522C796F200D2D946 /* ProcessControlVC.xib */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		929E835822C7977400D2D946 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				929E835922C7978600D2D946 /* ProcessControlViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		AEC5259F22C5AC6300AC8EB2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				929E834E22C7966A00D2D946 /* ProcessControl */,
 				AEC525A022C5AC6300AC8EB2 /* Home */,
 				AEC525AA22C5B70400AC8EB2 /* BaseOperator */,
 				AEC525A422C5B0BA00AC8EB2 /* Common */,
@@ -330,6 +363,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				929E835722C796F200D2D946 /* ProcessControlVC.xib in Resources */,
 				AEE8508E22C59F8200C46C56 /* LaunchScreen.storyboard in Resources */,
 				AEE8508B22C59F8200C46C56 /* Assets.xcassets in Resources */,
 				AEE8508922C59F6700C46C56 /* Main.storyboard in Resources */,
@@ -358,6 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				929E835A22C7978600D2D946 /* ProcessControlViewModel.swift in Sources */,
 				AEC525B622C5BAA700AC8EB2 /* UIKit+Extension.swift in Sources */,
 				AEC525BB22C5E4FA00AC8EB2 /* BasicGrammarViewModel.swift in Sources */,
 				AEC525A322C5AC8200AC8EB2 /* HomeTVC.swift in Sources */,
@@ -365,6 +400,7 @@
 				AEC525B822C5BB7500AC8EB2 /* Emoji.swift in Sources */,
 				AEC525C422C602A300AC8EB2 /* BasicGrammarVC.swift in Sources */,
 				AEE8508422C59F6700C46C56 /* AppDelegate.swift in Sources */,
+				929E835622C796F200D2D946 /* ProcessControlVC.swift in Sources */,
 				AEC525BE22C5E58500AC8EB2 /* ViewModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

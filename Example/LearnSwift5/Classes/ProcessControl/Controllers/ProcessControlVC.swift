@@ -1,14 +1,14 @@
 //
-//  BasicGrammarVC.swift
+//  ProcessControlVC.swift
 //  LearnSwift5
 //
-//  Created by CoderSLZeng on 2019/6/28.
+//  Created by Anthony on 2019/6/29.
 //  Copyright © 2019 CoderSLZeng. All rights reserved.
 //
 
 import UIKit
 
-class BasicGrammarVC: UIViewController {
+class ProcessControlVC: UIViewController {
 
     // MARK: - Properties
     @IBOutlet weak var titleLabel: UILabel!
@@ -16,15 +16,15 @@ class BasicGrammarVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Lazy
-    lazy var baseOperatorVM = BasicGrammarViewModel()
-
+    lazy var processControlVM = ProcessControlViewModel()
+    
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        baseOperatorVM.bindView(tableView)
-        baseOperatorVM.bindView(titleLabel)
-        baseOperatorVM.bindView(logTV)
+        processControlVM.bindView(tableView)
+        processControlVM.bindView(titleLabel)
+        processControlVM.bindView(logTV)
     }
 
 }
