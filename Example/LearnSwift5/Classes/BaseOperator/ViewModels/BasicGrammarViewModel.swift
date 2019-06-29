@@ -15,12 +15,14 @@ class BasicGrammarViewModel: NSObject, ViewModelProtocol {
     private let titles = ["常量的使用",
                           "变量的使用",
                           "标识符的使用",
-                          "整数类型的使用"]
+                          "整数类型的使用",
+                          "浮点类型的使用"]
     
     private let funNames = ["use_constant",
                             "use_variable",
                             "use_🐂🍺",
-                            "use_IntTypes"]
+                            "use_IntTypes",
+                            "use_FloatAndDoubleTypes"]
     
     // MARK: - Interface
     func bindView(_ bindView: UIView) {
@@ -157,6 +159,17 @@ extension BasicGrammarViewModel {
         let int = 10
         
         logTV?.text = "Int8 = \(int8)\nInt16 = \(int16)\nInt32 = \(int32)\nInt64 = \(int64)\n\nUInt8 = \(uint8)\nUInt16 = \(uint16)\nUInt32 = \(uint32)\nUInt64 = \(uint64)\n\nUInt8的最大值 = \(maxUInt8)\nInt16的最小值 = \(minInt16)\n\n一般情况下，都是直接使用Int即可\n Int = \(int)"
+    }
+    
+    /// 浮点类型的使用
+    @objc fileprivate func use_FloatAndDoubleTypes() {
+        // Float: 32位，精度只有6位
+        let float: Float = 10.0
+        
+        // Double: 64位，精度至少15位
+        let double: Double = 10.0
+        
+        logTV?.text = "Float: 32位，精度只有6位\nFloat = \(float)\n\nDouble: 64位，精度至少15位\nDouble = \(double)"
     }
     
 }
