@@ -16,7 +16,7 @@ class ProcessControlViewModel: NSObject, ViewModelProtocol {
     private let defalutLog = "尝试点击下方选项条，查看结果吧"
     private var resultLog = ""
     
-    enum Answer { case right, wrong }
+    fileprivate enum Answer { case right, wrong }
     
     private let titles = ["if-else",
                           "while",
@@ -25,7 +25,8 @@ class ProcessControlViewModel: NSObject, ViewModelProtocol {
                           "for-in-array",
                           "RangeTypes",
                           "带间隔的区间值",
-                          "switch"]
+                          "switch",
+                          "where",]
     
     private let funNames = ["use_if_else",
                             "use_while",
@@ -34,7 +35,8 @@ class ProcessControlViewModel: NSObject, ViewModelProtocol {
                             "use_for_in_array",
                             "use_range_types",
                             "use_range_value_with_interval",
-                            "use_switch"]
+                            "use_switch",
+                            "use_where"]
     
     // MARK: - Interface
     func bindView(_ bindView: UIView) {
@@ -271,6 +273,7 @@ extension ProcessControlViewModel {
         logTV?.text = resultLog
     }
     
+    // switch
     @objc fileprivate func use_switch() {
     
         let number = 1
@@ -340,10 +343,31 @@ extension ProcessControlViewModel {
         resultLog += newLine + "值绑定" + newLine
         let point2 = (2, 0)
         switch_bind_value(point2)
-                
+        
         logTV?.text = resultLog
     }
     
+    
+    
+    // where
+    @objc fileprivate func use_where() {
+        
+        resultLog = "where by switch" + newLine
+        let point = (1, -1)
+        where_by_switch(point) // on the lin x == -y
+        
+        resultLog += newLine + newLine
+        
+        resultLog += "where by for" + newLine
+        let numbers = [10, 20, -10, -20, 30, -30]
+        where_by_for(numbers) // 60
+        
+        logTV?.text = resultLog
+    }
+}
+
+// MARK: - Use switch
+extension ProcessControlViewModel {
     fileprivate func switch_default(_ number: Int) {
         resultLog = "case、default后面不能写大括号" + newLine
         resultLog += "默认可以不写break, 并不会贯穿到后面的条件" + newLine
@@ -450,9 +474,29 @@ extension ProcessControlViewModel {
             resultLog += "somewhere ele at (\(x), \(y))"
         } // on the x-axis with an x value of 2
     }
-    
-    
 }
 
+// MARK: - Use where
+extension ProcessControlViewModel {
+    fileprivate func where_by_switch(_ point: (Int, Int)) {
+        switch point {
+        case let (x, y) where x == y:
+            resultLog += "on the line x == y"
+        case let (x, y) where x == -y:
+            resultLog += "on the lin x == -y"
+        case let (x, y):
+            resultLog += "(\(x), \(y)) is just some arbitrary point"
+        }
+    }
+    
+    fileprivate func where_by_for(_ numbers: [Int]) {
+        var sum = 0
+        for number in numbers where number > 0 {
+            sum += number
+        }
+        
+        resultLog += "将所有正数加起来 = \(sum)"
+    }
+}
 
 
