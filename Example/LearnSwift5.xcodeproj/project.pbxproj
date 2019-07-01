@@ -12,6 +12,9 @@
 		929E835A22C7978600D2D946 /* ProcessControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929E835922C7978600D2D946 /* ProcessControlViewModel.swift */; };
 		929E835D22C79BAE00D2D946 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929E835C22C79BAE00D2D946 /* HomeViewModel.swift */; };
 		929E835F22C7BB6C00D2D946 /* const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929E835E22C7BB6C00D2D946 /* const.swift */; };
+		AE29EAB422C9B9D900DC0787 /* FunctionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE29EAB222C9B9D900DC0787 /* FunctionVC.swift */; };
+		AE29EAB522C9B9D900DC0787 /* FunctionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE29EAB322C9B9D900DC0787 /* FunctionVC.xib */; };
+		AE29EAB822C9BACE00DC0787 /* FunctionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE29EAB722C9BACE00DC0787 /* FunctionViewModel.swift */; };
 		AEC525A322C5AC8200AC8EB2 /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525A222C5AC8200AC8EB2 /* HomeTVC.swift */; };
 		AEC525B522C5BAA700AC8EB2 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525B322C5BAA700AC8EB2 /* Foundation+Extension.swift */; };
 		AEC525B622C5BAA700AC8EB2 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC525B422C5BAA700AC8EB2 /* UIKit+Extension.swift */; };
@@ -51,6 +54,9 @@
 		929E835922C7978600D2D946 /* ProcessControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessControlViewModel.swift; sourceTree = "<group>"; };
 		929E835C22C79BAE00D2D946 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		929E835E22C7BB6C00D2D946 /* const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = const.swift; sourceTree = "<group>"; };
+		AE29EAB222C9B9D900DC0787 /* FunctionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionVC.swift; sourceTree = "<group>"; };
+		AE29EAB322C9B9D900DC0787 /* FunctionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FunctionVC.xib; sourceTree = "<group>"; };
+		AE29EAB722C9BACE00DC0787 /* FunctionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionViewModel.swift; sourceTree = "<group>"; };
 		AEC525A222C5AC8200AC8EB2 /* HomeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
 		AEC525B322C5BAA700AC8EB2 /* Foundation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
 		AEC525B422C5BAA700AC8EB2 /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
@@ -132,9 +138,36 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		AE29EAB022C9B9A500DC0787 /* Function */ = {
+			isa = PBXGroup;
+			children = (
+				AE29EAB622C9BAB500DC0787 /* ViewModels */,
+				AE29EAB122C9B9B200DC0787 /* Controllers */,
+			);
+			path = Function;
+			sourceTree = "<group>";
+		};
+		AE29EAB122C9B9B200DC0787 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AE29EAB222C9B9D900DC0787 /* FunctionVC.swift */,
+				AE29EAB322C9B9D900DC0787 /* FunctionVC.xib */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AE29EAB622C9BAB500DC0787 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AE29EAB722C9BACE00DC0787 /* FunctionViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		AEC5259F22C5AC6300AC8EB2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				AE29EAB022C9B9A500DC0787 /* Function */,
 				929E834E22C7966A00D2D946 /* ProcessControl */,
 				AEC525A022C5AC6300AC8EB2 /* Home */,
 				AEC525AA22C5B70400AC8EB2 /* BaseOperator */,
@@ -377,6 +410,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE29EAB522C9B9D900DC0787 /* FunctionVC.xib in Resources */,
 				929E835722C796F200D2D946 /* ProcessControlVC.xib in Resources */,
 				AEE8508E22C59F8200C46C56 /* LaunchScreen.storyboard in Resources */,
 				AEE8508B22C59F8200C46C56 /* Assets.xcassets in Resources */,
@@ -413,8 +447,10 @@
 				AEC525A322C5AC8200AC8EB2 /* HomeTVC.swift in Sources */,
 				AEC525B522C5BAA700AC8EB2 /* Foundation+Extension.swift in Sources */,
 				AEC525B822C5BB7500AC8EB2 /* Emoji.swift in Sources */,
+				AE29EAB822C9BACE00DC0787 /* FunctionViewModel.swift in Sources */,
 				AEC525C422C602A300AC8EB2 /* BasicGrammarVC.swift in Sources */,
 				AEE8508422C59F6700C46C56 /* AppDelegate.swift in Sources */,
+				AE29EAB422C9B9D900DC0787 /* FunctionVC.swift in Sources */,
 				929E835F22C7BB6C00D2D946 /* const.swift in Sources */,
 				929E835622C796F200D2D946 /* ProcessControlVC.swift in Sources */,
 				AEC525BE22C5E58500AC8EB2 /* ViewModelProtocol.swift in Sources */,

@@ -12,10 +12,12 @@ class HomeViewModel: NSObject, ViewModelProtocol {
     
     // MARK: - Properties
     private let titles = ["基础语法",
-                          "流程控制"]
+                          "流程控制",
+                          "函数"]
     
     private let VCNames = ["BasicGrammarVC",
-                           "ProcessControlVC"]
+                           "ProcessControlVC",
+                           "FunctionVC"]
     
     // MARK: - Interface
     func bindView(_ bindView: UIView) {

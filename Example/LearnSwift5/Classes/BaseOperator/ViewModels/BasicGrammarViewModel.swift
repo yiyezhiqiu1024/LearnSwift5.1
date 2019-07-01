@@ -54,7 +54,7 @@ extension BasicGrammarViewModel: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier = "HomeCell"
+        let identifier = "BasicGrammarCell"
         var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
         if cell == nil {
             cell = UITableViewCell(style: .value1, reuseIdentifier: identifier)
