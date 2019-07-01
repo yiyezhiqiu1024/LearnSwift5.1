@@ -16,13 +16,16 @@ class ProcessControlViewModel: NSObject, ViewModelProtocol {
     private let defalutLog = "尝试点击下方选项条，查看结果吧"
     private var resultLog = ""
     
+    enum Answer { case right, wrong }
+    
     private let titles = ["if-else",
                           "while",
                           "repeat-while",
                           "for",
                           "for-in-array",
                           "RangeTypes",
-                          "带间隔的区间值"]
+                          "带间隔的区间值",
+                          "switch"]
     
     private let funNames = ["use_if_else",
                             "use_while",
@@ -30,7 +33,8 @@ class ProcessControlViewModel: NSObject, ViewModelProtocol {
                             "use_for",
                             "use_for_in_array",
                             "use_range_types",
-                            "use_range_value_with_interval"]
+                            "use_range_value_with_interval",
+                            "use_switch"]
     
     // MARK: - Interface
     func bindView(_ bindView: UIView) {
@@ -266,6 +270,187 @@ extension ProcessControlViewModel {
         
         logTV?.text = resultLog
     }
+    
+    @objc fileprivate func use_switch() {
+    
+        let number = 1
+        
+        // 1.默认
+        switch_default(number)
+        
+        resultLog += newLine
+        
+        // 2.贯穿
+        switch_fallthrough(number)
+        
+        /**
+         注意点1.必须要保证能处理所有的情况
+         
+         case、default后面至少要有一条语句
+         var number = 1
+         switch number {
+         case 1:
+            print("number is 1")
+         case 2:
+            print("number is 2")
+         }
+         
+         如果不想做任何事，加一个break即可
+         var number = 1
+         switch number {
+         case 1:
+            print("number is 1")
+         case 2:
+            print("number is 2")
+         default:
+            break
+         }
+         */
+        
+        resultLog += newLine
+        
+        // 3.枚举
+        resultLog += newLine + "如果能保证已处理所有情况，也可以不必使用default" + newLine
+        let answer = Answer.right
+        switch_Enum(answer)
+        
+        resultLog += newLine
+        
+        // 4.字符或字符串
+        resultLog += newLine + "复合条件：switch也支持Character、String 类型" + newLine
+        switch_Character_String()
+        
+        resultLog += newLine
+        
+        // 5.区间匹配
+        resultLog += newLine + "区间匹配" + newLine
+        let count = 62
+        switch_pattern_Range(count) // dozens of
+        
+        resultLog += newLine
+        
+        // 6.元组匹配
+        resultLog += newLine + "元组匹配" + newLine
+        let point1 = (1, 1)
+        switch_pattern_Tuple(point1)
+        
+        resultLog += newLine
+        
+        // 7.值绑定
+        resultLog += newLine + "值绑定" + newLine
+        let point2 = (2, 0)
+        switch_bind_value(point2)
+                
+        logTV?.text = resultLog
+    }
+    
+    fileprivate func switch_default(_ number: Int) {
+        resultLog = "case、default后面不能写大括号" + newLine
+        resultLog += "默认可以不写break, 并不会贯穿到后面的条件" + newLine
+        
+        switch number {
+        case 1:
+            resultLog += "number is 1"
+        case 2:
+            resultLog += "number is 2"
+        default:
+            resultLog += "number is other"
+        }
+    }
+    
+    fileprivate func switch_fallthrough(_ number: Int) {
+        resultLog += newLine + "使用fallthrough可以实现贯穿效果" + newLine
+        
+        switch number {
+        case 1:
+            resultLog += "number is 1" + newLine
+            fallthrough
+        case 2:
+            resultLog += "number is 2"
+        default:
+            resultLog += "number is other"
+        }
+    }
+    
+    fileprivate func switch_Enum(_ answer: Answer) {
+        // 注意点2.如果能保证已处理所有情况，也可以不必使用default
+        switch answer {
+        case Answer.right:
+            resultLog += "right"
+        case .wrong: // 由于已确定answer是Answer类型，因此可以省略Answer
+            resultLog += "wrong"
+        }
+    }
+    
+    fileprivate func switch_Character_String() {
+        // 复合条件：switch也支持Character、String 类型
+        let character: Character = "a"
+        switch character {
+        case "a", "A":
+            resultLog += "The letter A"
+        default:
+            resultLog += "Not the letter A"
+        } // The letter A
+        
+        resultLog += newLine
+        
+        let string = "Jack"
+        switch string {
+        case "Jack":
+            fallthrough
+        case "Rose":
+            resultLog += "Right person"
+        default:
+            break
+        } // Right person
+    }
+    
+    
+    fileprivate func switch_pattern_Range(_ count: Int) {
+        switch count {
+        case 0:
+            resultLog += "none"
+        case 1..<5:
+            resultLog += "a few"
+        case 5..<12:
+            resultLog += "several"
+        case 12..<100:
+            resultLog += "dozens of"
+        case 100..<1000:
+            resultLog += "hundreds of"
+            
+        default:
+            resultLog += "many"
+        }
+    }
+    
+    fileprivate func switch_pattern_Tuple(_ point: (Int, Int)) {
+        // 可以使用下划线_ 忽略某个值
+        switch point {
+        case (0, 0):
+            resultLog += "the origin"
+        case (_, 0):
+            resultLog += "on the x-axis"
+        case (0, _):
+            resultLog += "on the y-axis"
+        case (-2...2, -2...2):
+            resultLog += "inside the box"
+        default:
+            resultLog += "outside the box"
+        } // inside the box
+    }
+    
+    fileprivate func switch_bind_value(_ point: (Int, Int)) {
+        switch point {
+        case (let x, 0):
+            resultLog += "on the x-axis with an x value of \(x)"
+        case (0, let y):
+            resultLog += "on the y-axist whit a y value of \(y)"
+        case let (x, y):
+            resultLog += "somewhere ele at (\(x), \(y))"
+        } // on the x-axis with an x value of 2
+    }
+    
     
 }
 
