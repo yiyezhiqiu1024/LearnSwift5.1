@@ -21,14 +21,16 @@ class ProcessControlViewModel: NSObject, ViewModelProtocol {
                           "repeat-while",
                           "for",
                           "for-in-array",
-                          "RangeTypes"]
+                          "RangeTypes",
+                          "带间隔的区间值"]
     
     private let funNames = ["use_if_else",
                             "use_while",
                             "use_repeat_while",
                             "use_for",
                             "use_for_in_array",
-                            "use_range_types"]
+                            "use_range_types",
+                            "use_range_value_with_interval"]
     
     // MARK: - Interface
     func bindView(_ bindView: UIView) {
@@ -251,6 +253,18 @@ extension ProcessControlViewModel {
         characterRange.contains("G") // true
         
         logTV?.text = "阅读源码了解区间类型的使用"
+    }
+    
+    // 带间隔的区间值
+    @objc fileprivate func use_range_value_with_interval() {
+        let hours = 11
+        let hourInterval = 2
+        // tickMark的取值：从4开始，累加2，不超过11
+        for tickMark in stride(from: 4, to: hours, by: hourInterval) {
+            resultLog += "\(tickMark)"
+        }
+        
+        logTV?.text = resultLog
     }
     
 }
