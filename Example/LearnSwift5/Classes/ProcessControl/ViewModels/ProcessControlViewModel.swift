@@ -20,13 +20,15 @@ class ProcessControlViewModel: NSObject, ViewModelProtocol {
                           "while",
                           "repeat-while",
                           "for",
-                          "for-in-array"]
+                          "for-in-array",
+                          "RangeTypes"]
     
     private let funNames = ["use_if_else",
                             "use_while",
                             "use_repeat_while",
                             "use_for",
-                            "use_for_in_array"]
+                            "use_for_in_array",
+                            "use_range_types"]
     
     // MARK: - Interface
     func bindView(_ bindView: UIView) {
@@ -227,6 +229,29 @@ extension ProcessControlViewModel {
         logTV?.text = resultLog
     }
     
+    /// 区间类型
+    @objc fileprivate func use_range_types() {
+
+        let range1: ClosedRange<Int> = 1...3
+        let range2: Range<Int> = 1..<3
+        let range3: PartialRangeThrough<Int> = ...5
+        
+        // 字符、字符串也能使用区间运算符，但默认不能用for-in中
+        let stringRange1 = "cc"..."ff" // ClosedRange<String>
+        stringRange1.contains("cb") // false
+        stringRange1.contains("dz") // false
+        stringRange1.contains("fg") // false
+
+        let stringRange2 = "a"..."f"
+        stringRange2.contains("d") // true
+        stringRange2.contains("h") // false
+        
+        // \0到~囊括了所有可能要用到的ASCII字符
+        let characterRange: ClosedRange<Character> = "\0"..."~"
+        characterRange.contains("G") // true
+        
+        logTV?.text = "阅读源码了解区间类型的使用"
+    }
     
 }
 
