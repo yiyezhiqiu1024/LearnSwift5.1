@@ -26,7 +26,8 @@ class ProcessControlViewModel: NSObject, ViewModelProtocol {
                           "RangeTypes",
                           "带间隔的区间值",
                           "switch",
-                          "where",]
+                          "where",
+                          "标签语句"]
     
     private let funNames = ["use_if_else",
                             "use_while",
@@ -36,7 +37,8 @@ class ProcessControlViewModel: NSObject, ViewModelProtocol {
                             "use_range_types",
                             "use_range_value_with_interval",
                             "use_switch",
-                            "use_where"]
+                            "use_where",
+                            "use_outer"]
     
     // MARK: - Interface
     func bindView(_ bindView: UIView) {
@@ -94,6 +96,7 @@ extension ProcessControlViewModel: UITableViewDelegate {
 
 // MARK: - 流程控制
 extension ProcessControlViewModel {
+    
     /// if-else
     @objc fileprivate func use_if_else() {
         /**
@@ -104,15 +107,7 @@ extension ProcessControlViewModel {
         let condition = "age = 4" + newLine
         
         let age = 4
-        if age >= 22 {
-            resultLog = "Get married"
-        } else if age >= 18 {
-            resultLog = "Being a adult"
-        } else if age >= 7 {
-            resultLog = "Go to school"
-        } else {
-            resultLog = "Just a child"
-        }
+        if_else(age)
         
         logTV?.text = condition + resultLog
     }
@@ -347,8 +342,6 @@ extension ProcessControlViewModel {
         logTV?.text = resultLog
     }
     
-    
-    
     // where
     @objc fileprivate func use_where() {
         
@@ -364,10 +357,47 @@ extension ProcessControlViewModel {
         
         logTV?.text = resultLog
     }
+    
+    // 标签语句
+    @objc fileprivate func use_outer() {
+        resultLog = ""
+        outer: for i in 1...4 {
+            for k in 1...4 {
+                if k == 3 {
+                    continue outer
+                }
+                if i == 3 {
+                    break outer
+                }
+                
+                resultLog += "i == \(i), k == \(k)" + newLine
+            }
+        }
+        logTV?.text = resultLog
+    }
+}
+
+// MARK: - Use if else
+extension ProcessControlViewModel {
+    
+    fileprivate func if_else(_ age: Int) {
+        if age >= 22 {
+            resultLog = "Get married"
+        } else if age >= 18 {
+            resultLog = "Being a adult"
+        } else if age >= 7 {
+            resultLog = "Go to school"
+        } else {
+            resultLog = "Just a child"
+        }
+    }
+    
 }
 
 // MARK: - Use switch
 extension ProcessControlViewModel {
+    
+    
     fileprivate func switch_default(_ number: Int) {
         resultLog = "case、default后面不能写大括号" + newLine
         resultLog += "默认可以不写break, 并不会贯穿到后面的条件" + newLine
